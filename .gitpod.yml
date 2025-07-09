@@ -1,0 +1,10 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Start Docker
+    init: |
+      dockerd > /tmp/docker.log 2>&1 &
+      while(! docker stats --no-stream ); do sleep 1; done
+    command: |
+      ./setup-kind.sh
