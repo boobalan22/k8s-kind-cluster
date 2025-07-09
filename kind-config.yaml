@@ -1,6 +1,8 @@
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
+networking:
+  ipFamily: ipv4  # Force IPv4 only to avoid Gitpod IPv6 bug
 nodes:
-- role: control-plane
-- role: worker
-- role: worker
+  - role: control-plane
+  - role: worker
+  - role: worker
