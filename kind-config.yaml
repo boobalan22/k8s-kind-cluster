@@ -1,7 +1,11 @@
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 networking:
-  ipFamily: ipv4  # Force IPv4 only to avoid Gitpod IPv6 bug
+  ipFamily: ipv4           # Force IPv4 only
+  disableDefaultCNI: false
+  kubeProxyMode: iptables
+  apiServerAddress: "127.0.0.1"
+  apiServerPort: 6443
 nodes:
   - role: control-plane
   - role: worker
